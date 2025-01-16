@@ -54,7 +54,7 @@
 - Step 5: Generate SSL certificates
 
   ```bash
-  sudo certbot certonly --webroot -w /var/www/certbot/brainbox.eastasia.cloudapp.azure.com -d brainbox.eastasia.cloudapp.azure.com -d www.brainbox.eastasia.cloudapp.azure.com
+  sudo certbot certonly --webroot -w /var/www/certbot/brainbox.eastasia.cloudapp.azure.com -d brainbox.eastasia.cloudapp.azure.com
   ```
 
 - Step 6: SSL certificates are generated in `/etc/letsencrypt/live/brainbox.eastasia.cloudapp.azure.com`
