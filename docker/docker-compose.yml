@@ -22,7 +22,7 @@ services:
     networks:
       - brainbox-network
 
-  webhook:
+  brainbox-webhook:
     image: ghcr.io/lzaycoe/brainbox-webhook:latest
     container_name: brainbox-webhook
     env_file:
