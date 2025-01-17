@@ -1,0 +1,39 @@
+services:
+  proxy:
+    image: nginx:1.27.3-alpine
+    container_name: brainbox-proxy
+    restart: always
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 5000:5000
+      - 9000:9000
+    networks:
+      - brainbox-network
+
+  portainer:
+    image: portainer/portainer-ce:2.26.0-alpine
+    container_name: portainer
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    networks:
+      - brainbox-network
+
+  webhook:
+    image: ghcr.io/lzaycoe/brainbox-webhook:latest
+    container_name: brainbox-webhook
+    env_file:
+      - .webhook.env
+    networks:
+      - brainbox-network
+
+volumes:
+  portainer_data:
+
+networks:
+  brainbox-network:
+    driver: bridge
+
+name: brainbox
