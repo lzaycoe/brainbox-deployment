@@ -5,7 +5,7 @@ services:
     restart: always
     volumes:
       - ./proxy/nginx.conf:/etc/nginx/nginx.conf
-      - /etc/letsencrypt/live/brainbox.eastasia.cloudapp.azure.com:/etc/ssl
+      - ./ssl:/etc/ssl
     ports:
       - 5000:5000
       - 9000:9000
