@@ -22,6 +22,14 @@ services:
     networks:
       - brainbox-network
 
+  brainbox-backend:
+    image: ghcr.io/lzaycoe/brainbox-backend:latest
+    container_name: brainbox-backend
+    env_file:
+      - .backend.env
+    networks:
+      - brainbox-network
+
   brainbox-webhook:
     image: ghcr.io/lzaycoe/brainbox-webhook:latest
     container_name: brainbox-webhook
